@@ -49,7 +49,7 @@ int trace(char *program[]) {
 
         char *syscall = all_syscalls[regs.orig_rax].name;
         if (regs.orig_rax == (long long int)2) {
-            func_2((long)pid, &regs); // Handle syscall 2 specifically
+            func_2((long)pid, &regs); // Handle syscall 2 specifically for now , newer syscalls will be added
         } else {
             printf("%s", syscall); // Print the syscall name
         }
