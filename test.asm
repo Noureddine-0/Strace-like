@@ -1,5 +1,6 @@
 ;nasm -felf64 -o test.o test.asm
 ;ld -o test test.o
+;touch /tmp/te
 
 ;./my_program ./test
 section .text
