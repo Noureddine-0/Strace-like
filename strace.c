@@ -87,7 +87,6 @@ int main(int argc, char const *argv[]) {
     trace(program); // Start tracing the specified program
 #else
     printf("Not supported architecture");
-    return 0;
 #endif
 
     return 0;
