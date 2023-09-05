@@ -16,7 +16,7 @@ char *flags_array[34] = {"O_RDONLY","O_WRONLY","O_RDWR","O_ACCMODE",NULL,
 void Propen(long pid ,pt_user_regs *regs){
 	long long int flags = regs->rsi;
     long long int permissions = regs->rdx;
-    int rest,result,tracker;
+    int rest,result;
     int entered = 0;
 
     printf("open(");
@@ -24,7 +24,6 @@ void Propen(long pid ,pt_user_regs *regs){
     print_filename(pid,regs->rdi);
     printf("\", ");
     rest = flags % 8 ;
-    tracker = rest;
     result = (flags-rest) / 8;
     result =  result / 8;
 
