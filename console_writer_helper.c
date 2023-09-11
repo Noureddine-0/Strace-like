@@ -4,7 +4,7 @@
 #include <sys/uio.h>
 #include <stdint.h>
 
-#define MAX_FILENAME_LEN 10
+#define MAX_FILENAME_LEN 255
 
 void print_filename(long pid ,long address){
 	char local_buffer[MAX_FILENAME_LEN] = {0};
