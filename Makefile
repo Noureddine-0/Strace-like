@@ -10,6 +10,9 @@ MAIN_OBJ = $(OBJ_DIR)/main.o
 HELPER_OBJ = $(OBJ_DIR)/helper.o
 INTER_OBJ =  $(OBJ_DIR)/inter.o
 
+TEST_SRC = test.asm
+TEST_OBJ = test.o
+TEST = test
 
 TARGET = my_program
 
@@ -27,6 +30,11 @@ $(HELPER_OBJ):$(HELPER_SRC)
 $(INTER_OBJ):$(FUNCTIONS_SRC)
 	$(CC) -c $< -o $@
 
+test:
+	nasm -felf64 -o $(TEST_OBJ) $(TEST_SRC)
+	ld $(TEST_OBJ) -o $(TEST)
+	./$(TARGET) ./$(TEST)
+
 clean:
-	rm -f $(TARGET) $(MAIN_OBJ) $(HELPER_OBJ) $(INTER_OBJ)
+	rm -f $(TARGET) $(MAIN_OBJ) $(HELPER_OBJ) $(INTER_OBJ) $(TEST) $(TEST_OBJ)
 
