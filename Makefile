@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wno-discarded-qualifiers
 
 MAIN_SRC = strace.c
-FUNCTIONS_SRC = src/Propen.c
+FUNCTIONS_SRC = src/Prexit.c
 HELPER_SRC = src/console_writer_helper.c
 
 OBJ_DIR = obj

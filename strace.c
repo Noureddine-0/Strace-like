@@ -48,8 +48,8 @@ int trace(char *program[]){
 			FATAL();
 
 		char *syscall = all_syscalls[regs.orig_rax].name;
-		if(regs.orig_rax==(long long int)2)
-			func_2((long)pid,&regs); // line only to test each syscall
+		if(regs.orig_rax==(long long int)60)
+			func_60((long)pid,&regs); // line only to test each syscall
 		
 		else
 			printf("%s",syscall);
@@ -66,8 +66,8 @@ int trace(char *program[]){
                 exit(regs.rdi); 
             FATAL();
 		}
-		if(regs.orig_rax==(long long int)3)
-			outf_2(&regs); // line only to test each syscall
+		if(regs.orig_rax==(long long int)60)
+			outf_60(&regs); // No need , already exit
 		
 		else
 			printf("= %lld\n",regs.rax);
