@@ -24,15 +24,15 @@ To use Strace-like, follow these steps:
    ```bash
    git clone https://github.com/yourusername/emutrace.git
    ```
-2. **Navigate to Strace-like directory :
+2. **Navigate to Strace-like directory**:
    ```bash
    cd Strace-like
    ```
 3. **Build the Strace-like executable**: To build Strace-like from the source code, just execute the command:
 
   ```bash
-   make
-   ```
+  make
+  ```
 
 4. **Run Strace-like**: Execute Strace-like followed by the program you want to trace, specifying any required arguments. For example:
    ```bash
