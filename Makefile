@@ -4,7 +4,7 @@ CFLAGS = -Wno-discarded-qualifiers
 MAIN_SRC = strace.c
 
 HELPER_SRC = console_writer_helper.c
-FUNCTIONS_SRC = src/Prexit.c
+FUNCTIONS_SRC = src/Prbrk.c
 HELPER_SRC = src/console_writer_helper.c
 
 

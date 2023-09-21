@@ -2,7 +2,6 @@
 #include "../headers/syscall_printer.h"
 #include "../headers/headers.h"
 #include "../headers/console_writer_helper.h"
-#include <stddef.h>
 
 char *flags_array[34] = {"O_RDONLY","O_WRONLY","O_RDWR","O_ACCMODE",NULL,
                         "O_CREAT","O_EXCL",NULL,"O_NOCTTY",NULL,"O_TRUNC",
@@ -40,7 +39,12 @@ void Propen(long pid ,pt_user_regs *regs){
 }
 
 void outopen(pt_user_regs *regs){
-    printf("= %d\n", regs->rax);
+    if (regs->rax < 0){
+        perror("open");
+    }else{
+        printf("Hello ");
+        printf("= %lld\n", regs->rax);
+}
 }
 
 syscall_printer func_2 = (syscall_printer)&Propen;

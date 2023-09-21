@@ -12,5 +12,5 @@ _start:
     mov rax,2
     syscall
     mov rax ,60
-    mov rdi,0
+    mov rdi,1
     syscall

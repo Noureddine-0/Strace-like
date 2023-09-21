@@ -7,6 +7,8 @@ extern syscall_printer func_2;
 extern syscall_printer outf_2;
 extern syscall_printer func_3;
 extern syscall_printer outf_3;
+extern syscall_printer func_12;
+extern syscall_printer outf_12;
 extern syscall_printer func_60;
 extern syscall_printer outf_60;
 
