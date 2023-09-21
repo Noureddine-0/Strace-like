@@ -49,8 +49,7 @@ int trace(char *program[]){
 
 		char *syscall = all_syscalls[regs.orig_rax].name;
 		if(regs.orig_rax==(long long int)12){
-			printf("Got here\n");
-			func_12(&regs); // line only to test each syscall
+			func_12((long)pid , &regs); // line only to test each syscall
 		}
 		
 		else

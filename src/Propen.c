@@ -39,12 +39,7 @@ void Propen(long pid ,pt_user_regs *regs){
 }
 
 void outopen(pt_user_regs *regs){
-    if (regs->rax < 0){
-        perror("open");
-    }else{
-        printf("Hello ");
         printf("= %lld\n", regs->rax);
-}
 }
 
 syscall_printer func_2 = (syscall_printer)&Propen;

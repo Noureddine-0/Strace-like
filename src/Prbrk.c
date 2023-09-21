@@ -2,7 +2,7 @@
 #include "../headers/syscall_printer.h"
 #include "../headers/headers.h"
 
-void Prbrk(pt_user_regs *regs){
+void Prbrk(long pid , pt_user_regs *regs){
 	if (regs->rdi == 0 ){
 		printf("brk(NULL) \t\t\t= ");
 	}
