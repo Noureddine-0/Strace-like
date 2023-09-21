@@ -13,10 +13,6 @@ MAIN_OBJ = $(OBJ_DIR)/main.o
 HELPER_OBJ = $(OBJ_DIR)/helper.o
 INTER_OBJ =  $(OBJ_DIR)/inter.o
 
-TEST_SRC = test.asm
-TEST_OBJ = test.o
-TEST = test
-
 TARGET = emutrace
 
 all:$(TARGET)
