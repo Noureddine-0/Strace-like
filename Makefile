@@ -17,7 +17,7 @@ TEST_SRC = test.asm
 TEST_OBJ = test.o
 TEST = test
 
-TARGET = my_program
+TARGET = emutrace
 
 all:$(TARGET)
 
