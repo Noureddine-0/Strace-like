@@ -34,10 +34,6 @@ $(INTER_OBJ):$(FUNCTIONS_SRC)
 	$(CC) -c $< -o $@
 
 
-test:
-	nasm -felf64 -o $(TEST_OBJ) $(TEST_SRC)
-	ld $(TEST_OBJ) -o $(TEST)
-	./$(TARGET) ./$(TEST)
 
 clean:
-	rm -f $(TARGET) $(MAIN_OBJ) $(HELPER_OBJ) $(INTER_OBJ) $(TEST) $(TEST_OBJ)
+	rm -f $(TARGET) $(MAIN_OBJ) $(HELPER_OBJ) $(INTER_OBJ)
