@@ -10,11 +10,12 @@ Strace-like is a program designed to emulate strace functionality specifically f
 
 - **System Call Tracing**: Strace-like provides the ability to trace and monitor system calls made by processes, allowing users to analyze the behavior of the software and identify potential issues.
 
-- **Detailed Information**: Strace-like offers detailed information about each traced system call, including parameters and return values, giving users a comprehensive view of the system interactions.
-
 - **Debugging and Profiling**: Strace-like aids in debugging by providing real-time insights into system calls, helping users diagnose errors and performance bottlenecks. It also supports profiling to optimize software performance.
 
-- **Intuitive Usage**: The tool is designed with a user-friendly interface, making it easy to set up and use for both beginners and experienced developers.
+## Future roadmap
+
+- **Catching signal**: For this time , strace-like is uncapable of managing signals , sooner it will be .
+
 
 ## Usage
 
@@ -22,7 +23,7 @@ To use Strace-like, follow these steps:
 
 1. **Clone the Repository**: Clone the Strace-like repository from GitHub using Git:
    ```bash
-   git clone https://github.com/yourusername/emutrace.git
+   git clone https://github.com/Noureddine-0/strace-like.git
    ```
 2. **Navigate to Strace-like directory**:
    ```bash

@@ -1,29 +1,16 @@
 #define __TRACING_HEADERS
 
 #include <errno.h>
+#include <signal.h>
+
 #include "headers/headers.h"
 #include "headers/syscall_64.h"
 #include "headers/syscall_printer.h"
 #include "headers/console_writer.h"
 
-#define FATAL() \
-	do{ \
-		fprintf(stderr,"strace");\
-		perror(" "); \
-		exit(EXIT_FAILURE); \
-	} while (0)
 
-#define USAGE(...) \
-	do{ \
-		fprintf(stderr,"Usage : "__VA_ARGS__);\
-		fputc('\n',stderr);\
-		exit(EXIT_FAILURE);\
-	}while(0)
+int start_tracing(char *program[]){
 
-
-int trace(char *program[]){
-
-	pt_user_regs regs;
 	pid_t pid = fork();
 	
 	switch(pid){
@@ -37,45 +24,10 @@ int trace(char *program[]){
 
 	waitpid(pid,0,0);
 	ptrace(PTRACE_SETOPTIONS,pid,0,PTRACE_O_EXITKILL);
-
-	for(;;){
-		if(ptrace(PTRACE_SYSCALL, pid, 0, 0) == -1)
-			FATAL();
-		if(waitpid(pid, 0, 0) == -1)
-			FATAL();
-
-		if(ptrace(PTRACE_GETREGS, pid, 0 ,&regs) ==-1)
-			FATAL();
-
-		char *syscall = all_syscalls[regs.orig_rax].name;
-		if(regs.orig_rax==(long long int)12){
-			func_12((long)pid , &regs); // line only to test each syscall
-		}
-		
-		else
-			printf("%s",syscall);
-
-		if(ptrace(PTRACE_SYSCALL, pid, 0, 0) == -1)
-			FATAL();
-		if(waitpid(pid, 0, 0) == -1)
-			FATAL();
-
-		if(ptrace(PTRACE_GETREGS,pid,0,&regs)==-1){
-			puts("= ?\n");
-            if (errno == ESRCH)
-            	printf("+++ exited with %lld +++",regs.rdi);
-                exit(regs.rdi); 
-            FATAL();
-		}
-		if(regs.orig_rax==(long long int)12)
-			outf_12(&regs); // No need , already exit
-		
-		else{
-			printf("= %lld\n",regs.rax);
-		}
+	for (;;){
+		syscall_trace(pid);
 	}
 }
-
 
 int main(int argc, char const *argv[])
 {

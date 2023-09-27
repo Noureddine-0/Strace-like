@@ -4,36 +4,51 @@
 #ifndef __HEADERS_H
 #define __HEADERS_H
 
-	#ifdef __PRIMITIVE_HEADERS
+#define FATAL() \
+	do{ \
+		fprintf(stderr,"strace");\
+		perror(" "); \
+		exit(EXIT_FAILURE); \
+	} while (0)
+
+#define USAGE(...) \
+	do{ \
+		fprintf(stderr,"Usage : "__VA_ARGS__);\
+		fputc('\n',stderr);\
+		exit(EXIT_FAILURE);\
+	}while(0)
+
+#ifdef __PRIMITIVE_HEADERS
 		
-		#define __ESSENTAIL
+#define __ESSENTAIL
 		
-		#include <stdio.h>
-		#include <unistd.h>
-		#include <stdlib.h>
-		#include <string.h>
-		#include <fcntl.h>
-		#include <sys/stat.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
-	#endif
+#endif
 
-	#ifdef __TRACING_HEADERS
+#ifdef __TRACING_HEADERS
 
-		#ifndef __ESSENTAIL
-			#include <stdio.h>
-			#include <unistd.h>
-			#include <stdlib.h>
-			#include <string.h>
-		#endif
+#ifndef __ESSENTAIL
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#endif
 
-		#include <sys/ptrace.h>
-		#include <sys/types.h>
-		#include <sys/wait.h>
-		#include <sys/user.h>
-		#include <syscall.h>
+#include <sys/ptrace.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/user.h>
+#include <syscall.h>
 
-		typedef struct user_regs_struct pt_user_regs;
-	#endif
+typedef struct user_regs_struct pt_user_regs;
+
+#endif
 #endif
 
 
