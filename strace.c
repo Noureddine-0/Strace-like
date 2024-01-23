@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])
 		}
 
 		program[argc] = NULL;
-		trace(program);
+		start_tracing(program);
 	#else
 		printf("Not supported architecture");
 	#endif	
